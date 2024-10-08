@@ -1,8 +1,13 @@
-public class ContractedEmployee {
+public class ContractedEmployee extends Employee {
     // TODO fix class declaration and declare variables here
+    protected String federalTaxId;
+    protected double numberOfHoursWorked;
 
     public ContractedEmployee(String employeeId, String name, String federalTaxId) {
         // TODO fill in code here
+        this.employeeId = employeeId;
+        this.name = name;
+        this.federalTaxId = federalTaxId;
     }
 
     public String getFederalTaxId() {
@@ -12,6 +17,7 @@ public class ContractedEmployee {
 
     public void setFederalTaxId(String federalTaxId) {
         // TODO fill in code here
+        this.federalTaxId = federalTaxId;
     }
 
     public double getHourlyRate() {
@@ -30,6 +36,7 @@ public class ContractedEmployee {
 
     public void setNumberOfHoursWorked(double numberOfHoursWorked) {
         // TODO fill in code here
+        this.numberOfHoursWorked = numberOfHoursWorked;
     }
 
     // TODO fill in code here
