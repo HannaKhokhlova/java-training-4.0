@@ -1,18 +1,18 @@
 public class ContractedEmployee extends Employee {
     // TODO fix class declaration and declare variables here
-    protected String federalTaxId;
-    protected double numberOfHoursWorked;
+    private String federalTaxId;
+    private double numberOfHoursWorked;
+    private double hourlyRate;
 
     public ContractedEmployee(String employeeId, String name, String federalTaxId) {
         // TODO fill in code here
-        this.employeeId = employeeId;
-        this.name = name;
+        super(employeeId, name);
         this.federalTaxId = federalTaxId;
     }
 
     public String getFederalTaxId() {
         // TODO fill in code here and replace the return statement
-        return "";
+        return federalTaxId;
     }
 
     public void setFederalTaxId(String federalTaxId) {
@@ -22,16 +22,17 @@ public class ContractedEmployee extends Employee {
 
     public double getHourlyRate() {
         // TODO fill in code here and replace the return statement
-        return 0;
+        return hourlyRate;
     }
 
     public void setHourlyRate(double hourlyRate) {
         // TODO fill in code here
+        this.hourlyRate = hourlyRate;
     }
 
     public double getNumberOfHoursWorked() {
         // TODO fill in code here and replace the return statement
-        return 0;
+        return numberOfHoursWorked;
     }
 
     public void setNumberOfHoursWorked(double numberOfHoursWorked) {
@@ -40,4 +41,13 @@ public class ContractedEmployee extends Employee {
     }
 
     // TODO fill in code here
+    @Override
+    public double calculatePay() {
+        return hourlyRate * numberOfHoursWorked; // Calculation for hourly paid workers
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Federal Tax ID: " + federalTaxId;
+    }
 }

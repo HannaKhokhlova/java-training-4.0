@@ -1,17 +1,13 @@
-public class Employee {
+public class Employee implements Payable {
     // TODO fix class declaration and declare variables here
-    protected String employeeId;
-    protected String name;
+    private String employeeId;
+    private String name;
 
     public Employee(String employeeId, String name) {
         // TODO fill in code here
         this.employeeId = employeeId;
         this.name = name;
     }
-
-    public Employee() {
-    }
-
 
     public String getEmployeeId() {
         // TODO fill in code here and replace the return statement
@@ -33,6 +29,11 @@ public class Employee {
     }
 
     public double getAverageMonthlySalary() {
+        return calculatePay();
+    }
+
+    @Override
+    public double calculatePay() {
         // TODO fill in code here and replace the return statement
         return 0;
     }
@@ -40,6 +41,7 @@ public class Employee {
     @Override
     public String toString() {
         // TODO fill in code here and replace the return statement, be sure to format double value
-        return "";
+        return "Employee ID: " + employeeId + ", Name: " + name + "," +
+                " Average Monthly Pay: $" + String.format("%.2f", calculatePay());
     }
 }
