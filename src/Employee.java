@@ -32,7 +32,6 @@ public class Employee implements Payable {
         return calculatePay();
     }
 
-    @Override
     public double calculatePay() {
         // TODO fill in code here and replace the return statement
         return 0;

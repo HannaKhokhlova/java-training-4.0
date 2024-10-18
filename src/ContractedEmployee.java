@@ -43,7 +43,11 @@ public class ContractedEmployee extends Employee {
     // TODO fill in code here
     @Override
     public double calculatePay() {
-        return hourlyRate * numberOfHoursWorked; // Calculation for hourly paid workers
+        if (numberOfHoursWorked > 0) {
+            return hourlyRate * numberOfHoursWorked;
+        } else {
+            return 0;
+        }
     }
 
     @Override
