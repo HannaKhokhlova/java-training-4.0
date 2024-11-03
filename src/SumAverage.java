@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -28,7 +27,6 @@ public class SumAverage {
      * @return sum of integers
      */
     public static int sum(int[] numbers) {
-        // TODO fill in code here using for each loop and replace the return statement
         int sum = 0;
         for (int number : numbers) {
             sum += number;
@@ -44,15 +42,15 @@ public class SumAverage {
      * @return average of integers
      */
     public static double average(int lowerBound, int upperBound) {
-        // TODO fill in code here using while loop and replace the return statement
+        int[] numbers = IntStream.range(lowerBound, upperBound + 1).toArray();
         int sum = 0;
-        int count = 0;
-        while (lowerBound <= upperBound ) {
-            sum += lowerBound;
-            lowerBound++;
-            count++;
+        int index = 0;
+
+        while (index < numbers.length ) {
+            sum += numbers[index];
+            index++;
         }
-        return (double) sum/count;
+        return  (double) sum / numbers.length;
     }
 
     /**
@@ -62,21 +60,14 @@ public class SumAverage {
      * @return average of integers
      */
     public static double average(int[] numbers) {
-        // TODO fill in code here using do-while loop and replace the return statement
-        if (numbers == null || numbers.length == 0) {
-            return 0;
-        }
-
         int sum = 0;
-        int count = 0;
         int index = 0;
 
         do {
             sum += numbers[index];
-            count++;
             index++;
         } while (index < numbers.length);
 
-        return (double) sum / count;
+        return (double) sum / numbers.length;
     }
 }
