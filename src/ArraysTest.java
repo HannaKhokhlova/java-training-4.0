@@ -23,16 +23,15 @@ public class ArraysTest {
                         new String[]{"some", "text", "above", "."},
                         new String[]{"some", "text", "."}
                 },
-                // TODO add 2 more test data here
                 {
-                        new String[]{"here", "another", "example", "1", "-", "5"},
-                        new String[]{"5", "-", "5", "1"},
+                        new String[]{"calculate", "1", "-", "5"},
+                        new String[]{"6", "-", "5", "=", "1"},
                         new String[]{"1", "5", "-"}
                 },
                 {
                         new String[]{"have", "a", "nice", "day", "!"},
-                        new String[]{"The", "weather", "is", "nice", "!"},
-                        new String[]{"!", "nice"}
+                        new String[]{"The", "weather", "is", "bad"},
+                        new String[]{}
                 }
         };
     }
