@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Two">
+    <test name="Test Class Two">
+        <parameter name="name" value="John"/>
+        <classes>
+            <class name="test.java.example.TestClassTwo"/>
+        </classes>
+    </test>
+</suite>
