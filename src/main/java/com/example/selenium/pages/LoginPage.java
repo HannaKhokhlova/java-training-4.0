@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
-
-    // TODO define username, password, and login WebElements using @FindBy
     @FindBy(id = "username")
     private WebElement username;
 
@@ -24,19 +22,16 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage setUsername(String text) {
-        // TODO set username
         username.sendKeys(text);
         return this;
     }
 
     public LoginPage setPassword(String text) {
-        // TODO set password
         password.sendKeys(text);
         return this;
     }
 
     public MainPage clickLogin() {
-        // TODO click login return instance of MainPage
         login.click();
         return new MainPage(driver);
     }

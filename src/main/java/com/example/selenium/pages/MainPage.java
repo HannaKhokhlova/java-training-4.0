@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage extends BasePage {
 
-    // TODO define title and logout WebElements using @FindBy
     @FindBy(css = "h2")
     private WebElement title;
 
@@ -20,12 +19,10 @@ public class MainPage extends BasePage {
     }
 
     public String getTitle() {
-        // TODO return title text
         return title.getText();
     }
 
     public MainPage clickLogout() {
-        // TODO click logout and return MainPage
         logout.click();
         return this;
     }

@@ -16,19 +16,16 @@ public class UserSteps {
     }
 
     public UserSteps login(String username, String password) {
-        // TODO initialize LoginPage, call setUsername, setPassword, and click login methods
         loginPage = new LoginPage(driver);
         mainPage = loginPage.setUsername(username)
                 .setPassword(password)
                 .clickLogin();
 
-        //  TODO assert title
         assertEquals(mainPage.getTitle(), "Secure Area", "Login failed");
         return this;
     }
 
     public UserSteps logout() {
-        // TODO call logout method
         mainPage.clickLogout();
         return this;
     }
