@@ -29,7 +29,7 @@ public class SampleAppTest {
         if (platform.equals("ANDROID")) {
             var options = new UiAutomator2Options()
                     .setPlatformName("Android")
-                    .setDeviceName("PUT_YOUR_DEVICE_NAME_HERE")
+                    .setDeviceName("emulator-5554")
                     .setApp(Paths.get(path).resolve("ApiDemos-debug.apk").toString());
 
             server = AppiumDriverLocalService.buildService(new AppiumServiceBuilder().usingAnyFreePort());
@@ -40,9 +40,9 @@ public class SampleAppTest {
         } else {
             var options = new XCUITestOptions()
                     .setPlatformName("iOS")
-                    .setPlatformVersion("PUT_YOUR_XCODE_VERSION_HERE")
+                    .setPlatformVersion("16C5032a")
                     .setAutomationName("XCuiTest")
-                    .setDeviceName("PUT_YOUR_DEVICE_NAME_HERE")
+                    .setDeviceName("iPhone 15")
                     .setApp(Paths.get(path).resolve("TestApp.app.zip").toString());
 
             server = AppiumDriverLocalService.buildService(new AppiumServiceBuilder().usingAnyFreePort());
@@ -53,9 +53,12 @@ public class SampleAppTest {
 
     @Test
     public void textFieldTest() {
-        // TODO initialise PageView and set "text" to its textField
+        // initialise PageView and set "text" to its textField
+        PageView pageView = new PageView(driver);
+        pageView.setTextField("text");
 
-        // TODO assert that textField equals to "text"
+        // assert that textField equals to "text"
+        assert pageView.getTextField().equals("text") : "Incorrect value";
     }
 
     @AfterClass
