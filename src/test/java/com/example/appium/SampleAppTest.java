@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import java.nio.file.Paths;
 
+import static io.appium.java_client.service.local.flags.GeneralServerFlag.BASEPATH;
 import static java.lang.System.getenv;
 
 public class SampleAppTest {
@@ -30,9 +31,14 @@ public class SampleAppTest {
             var options = new UiAutomator2Options()
                     .setPlatformName("Android")
                     .setDeviceName("emulator-5554")
+                    .setAppActivity(".view.TextFields")
                     .setApp(Paths.get(path).resolve("ApiDemos-debug.apk").toString());
 
-            server = AppiumDriverLocalService.buildService(new AppiumServiceBuilder().usingAnyFreePort());
+            server = AppiumDriverLocalService.buildService(
+                    new AppiumServiceBuilder()
+                            .usingAnyFreePort()
+                            .withArgument(BASEPATH, "/wd/hub")
+                            .withIPAddress("127.0.0.1"));
             server.start();
             driver = new AndroidDriver(server, options);
 
@@ -40,12 +46,16 @@ public class SampleAppTest {
         } else {
             var options = new XCUITestOptions()
                     .setPlatformName("iOS")
-                    .setPlatformVersion("16C5032a")
-                    .setAutomationName("XCuiTest")
+                    .setPlatformVersion("18.2")
+                    .setAutomationName("XCUITest")
                     .setDeviceName("iPhone 15")
                     .setApp(Paths.get(path).resolve("TestApp.app.zip").toString());
 
-            server = AppiumDriverLocalService.buildService(new AppiumServiceBuilder().usingAnyFreePort());
+            server = AppiumDriverLocalService.buildService(
+                    new AppiumServiceBuilder()
+                            .usingAnyFreePort()
+                            .withArgument(BASEPATH, "/wd/hub")
+                            .withIPAddress("127.0.0.1"));
             server.start();
             driver = new IOSDriver(server, options);
         }

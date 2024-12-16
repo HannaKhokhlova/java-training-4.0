@@ -11,7 +11,7 @@ public class PageView {
     AppiumDriver driver;
 
     // TODO define textField MobileElement using @FindBy kind of annotations for iOS and Android
-    @AndroidFindBy(id = "edit")
+    @AndroidFindBy(id = "io.appium.android.apis:id/edit")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'IntegerA'")
     private WebElement textField;
 
