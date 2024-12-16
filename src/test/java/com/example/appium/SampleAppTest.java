@@ -63,11 +63,9 @@ public class SampleAppTest {
 
     @Test
     public void textFieldTest() {
-        // initialise PageView and set "text" to its textField
         PageView pageView = new PageView(driver);
         pageView.setTextField("text");
 
-        // assert that textField equals to "text"
         assert pageView.getTextField().equals("text") : "Incorrect value";
     }
 
